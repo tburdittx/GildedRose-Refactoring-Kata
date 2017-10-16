@@ -20,7 +20,18 @@ namespace csharp
 
             Program.Main(new string[] { });
             String output = fakeoutput.ToString();
-            Approvals.Verify(output);
+
+            StreamReader file = new StreamReader(@"C:\Work\GuildedRose\GildedRose-Refactoring-Kata\csharp\ApprovalTest.ThirtyDays.received.txt");
+            string valid = "";
+            string line;
+            while ((line = file.ReadLine()) != null)
+                {
+                valid += line;
+                }
+            file.Close();
+            output = output.Replace(Environment.NewLine, "");
+            Assert.AreEqual(valid, output);
+                
         }
     }
 }
