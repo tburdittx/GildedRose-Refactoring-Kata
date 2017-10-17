@@ -7,13 +7,19 @@ namespace csharp
     public class GildedRoseTest
     {
         [Test]
-        public void Foo()
+        public void ItemName()
 
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "fixme", SellIn = 0, Quality = 0 } };
+            //arrange- set up the conditions for the test
+            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
+                      
             GildedRose app = new GildedRose(Items);
+
+            // act- where the running of the test happens
             app.UpdateQuality();
-            Assert.AreEqual("fixme", Items[0].Name);
+
+            //assert- where you get the results
+            Assert.AreEqual("foo", Items[0].Name);
         }
     }
 }
